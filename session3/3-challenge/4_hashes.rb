@@ -8,14 +8,17 @@
 
 def first_pos(str)
 
-	str = str.split.each {|word| word.downcase!}  # => ["the", "dog", "and", "the", "cat", "and", "the", "cow"]
+	str = str.split.each {|word| word}  # => 
+	out = {}
 
-	out = Hash.new 0
 
 
+	for i in 0..(str.length-1)
+		out[str[i]] = i if out[str[i]] == nil
+	end
 
 	return out
 	
 end
 
-first_pos "The dog and the cat and the cow" # => {}
+# first_pos "The dog and the cat and the cow" # => {"The"=>0, "dog"=>1, "and"=>2, "the"=>3, "cat"=>4, "cow"=>7}
